@@ -3,6 +3,8 @@ package com.nttdata.customers.model;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Data
@@ -10,6 +12,7 @@ import javax.persistence.Id;
 public class Customers {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String lastname;

@@ -1,0 +1,8 @@
+#server.port=8080
+#spring.data.mongodb.uri=mongodb+srv://mongodb:mongodb@bootcamp-nttdata.wf0wc.mongodb.net/customers?retryWrites=true&w=majority
+#eureka.instance.hostname=localhost
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/customers

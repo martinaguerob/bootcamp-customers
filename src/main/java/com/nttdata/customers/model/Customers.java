@@ -1,18 +1,16 @@
 package com.nttdata.customers.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 @Data
-@Document(collation = "Customers")
+@AllArgsConstructor
+@Document(collection = "customers")
 public class Customers {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String lastname;

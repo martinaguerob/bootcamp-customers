@@ -13,7 +13,9 @@ public class Customers {
     @Id
     private String id;
     private String name;
-    private String lastname;
+    private String nroDoc;
     private String code;
     private String type;
+    private Boolean status;
+
 }

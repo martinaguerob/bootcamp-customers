@@ -3,8 +3,6 @@ package com.nttdata.customers.service.impl;
 import com.nttdata.customers.model.Customers;
 import com.nttdata.customers.repository.CustomersRepository;
 import com.nttdata.customers.service.CustomersService;
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +22,7 @@ public class CustomersServiceImpl implements CustomersService {
 
     @Override
     public Mono<Customers> save(Customers entity) {
+        entity.setStatus(true);
         return customersRepository.save(entity);
     }
 
@@ -35,5 +34,10 @@ public class CustomersServiceImpl implements CustomersService {
     @Override
     public Mono<Void> delete(String id) {
         return customersRepository.deleteById(id);
+    }
+
+    @Override
+    public Mono<Customers> findByCode(String code) {
+        return customersRepository.findByCode(code);
     }
 }

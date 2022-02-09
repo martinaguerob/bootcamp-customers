@@ -2,10 +2,9 @@ package com.nttdata.customers.controller;
 
 import com.nttdata.customers.model.Customers;
 import com.nttdata.customers.service.CustomersService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

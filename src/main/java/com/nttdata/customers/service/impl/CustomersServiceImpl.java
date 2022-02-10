@@ -28,12 +28,26 @@ public class CustomersServiceImpl implements CustomersService {
 
     @Override
     public Mono<Customers> update(Customers entity) {
-        return customersRepository.save(entity);
+        return  customersRepository.findById(entity.getId())
+                .switchIfEmpty(Mono.empty())
+                .flatMap(origin -> {
+                    origin.setName(entity.getName());
+                    origin.setStatus(entity.getStatus());
+                    origin.setCode(entity.getCode());
+                    origin.setType(entity.getType());
+                    origin.setNroDoc(entity.getNroDoc());
+                    return customersRepository.save(origin);
+                });
     }
 
     @Override
-    public Mono<Void> delete(String id) {
-        return customersRepository.deleteById(id);
+    public Mono<Customers> delete(String id) {
+        return customersRepository.findById(id)
+                .switchIfEmpty(Mono.empty())
+                .flatMap(origin -> {
+                    origin.setStatus(false);
+                    return customersRepository.save(origin);
+                });
     }
 
     @Override
